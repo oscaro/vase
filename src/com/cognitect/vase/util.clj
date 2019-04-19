@@ -1,13 +1,8 @@
 (ns com.cognitect.vase.util
-  (:require [clojure.edn :as edn]
-            [clojure.java.io :as io]
-            [clojure.string :as cstr]
-            [cheshire.core :as json]
+  (:require [cheshire.core :as json]
             [cognitect.transit :as transit])
-  (:import (java.io ByteArrayInputStream
-                    FileInputStream
-                    File)
-           (javax.xml.bind DatatypeConverter)))
+  (:import (java.io ByteArrayInputStream)
+           (java.util Base64)))
 
 (defn map-vals
   [f m]
@@ -21,8 +16,9 @@
 
 (defn short-hash []
   (subs
-    (DatatypeConverter/printBase64Binary
-      (byte-array (loop [i 0
+    (.encodeToString
+      (Base64/getEncoder)
+      (byte-array (loop [i   0
                          ret (transient [])]
                     (if (< i 8)
                       (recur (inc i) (conj! ret (.byteValue ^Long (long (rand 100)))))
