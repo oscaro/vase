@@ -1,6 +1,9 @@
 [![CircleCI](https://circleci.com/gh/cognitect-labs/vase.svg?style=svg&circle-token=21b84b7aea75483821d3852de6c5d9930e85720a)](https://circleci.com/gh/cognitect-labs/vase)
 
-[![Clojars Project](https://img.shields.io/clojars/v/com.cognitect/pedestal.vase.svg)](https://clojars.org/com.cognitect/pedestal.vase)
+[![Clojars Project](https://img.shields.io/clojars/v/com.oscaro/pedestal.vase.svg)](https://clojars.org/com.oscaro/pedestal.vase)
+
+### NOTE:
+This is a fork of [cognitect-labs/vase](https://github.com/cognitect-labs/vase) which corrects some of the pending issues we have discovered while running in production (i.e. jdk11 compatibility, validate http status codes etc.). This fork will live until the upstream project integrates the necessary fixes.
 
 # Vase: Data-driven microservices
 
